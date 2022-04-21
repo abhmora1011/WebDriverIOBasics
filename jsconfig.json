@@ -1,0 +1,17 @@
+{
+    // added from https://webdriver.io/docs/autocompletion#visual-studio-code-vscode
+    "compilerOptions": {
+        "types": [
+            "node",
+            "webdriverio/sync",
+            "@wdio/mocha-framework"
+        ]
+    },
+    // This is added manually
+    "include": [
+        "test/specs/*.js",
+        "**/*.json",
+        "node_modules/@wdio/sync",
+        "node_modules/@wdio/mocha-framework"
+    ]
+}
