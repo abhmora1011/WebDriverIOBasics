@@ -13,6 +13,22 @@ describe('ECommere Application', async () => {
         // await will make your execution synchonous 
         console.log(await browser.getTitle())
 
+        // Assestion added
+        await expect(browser).toHaveTitleContaining("LoginPage Practise | Rahul Shetty Academy")
+
+        // CSS Selector
+        /*
+            id - #id - #username
+            class name - .className
+            tagname[attribute='value']
+        */
+        //const elem = await $('#username')
+        await $("input[name='username']").setValue('Hello') // input value
+
+        await browser.pause(3000) // is like Thread.sleep in java to pause the execution
+
+        await $("input[name='username']").setValue('Hello') // override the existing content
+
         // to run in terminal type npx wdio run ./wdio.conf.js
 
         // npx is a shortcut to find the wdio file to run the script
