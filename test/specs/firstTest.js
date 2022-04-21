@@ -6,7 +6,8 @@ describe('ECommere Application', async () => {
 
     // test case name in the first arg
     // give async keyword for the script know that it is an asynchromous and need to use the await keyword to be in sync*
-    it('Login Fail Page',async () => {
+    // adding x infront of it makes the test case disable
+    xit('Login Fail Page',async () => {
         //webdriverio is Async
         await browser.url("https://www.rahulshettyacademy.com/loginpagePractise/");
         // (promise) resolved, pending, rejected
@@ -58,6 +59,32 @@ describe('ECommere Application', async () => {
         // to run in terminal type npx wdio run ./wdio.conf.js
 
         // npx is a shortcut to find the wdio file to run the script
+
+        // ASSERTION
+        await expect($("p")).toHaveTextContaining("username is rahulshettyacademy and Password is learning")
+    })
+
+    it('Login Success Page', async ()=> {
+        await browser.url("https://www.rahulshettyacademy.com/loginpagePractise/");
+        await browser.maximizeWindow()
+        await $("input[name='username']").setValue('rahulshettyacademy') 
+        await $("//input[@type='password']").setValue("learning")
+        await $("#signInBtn").click()
+        await browser.pause(2000)
+        await console.log(await browser.getUrl())
+
+        // await browser.waitUntil(
+        //     async ()=> await $(".btn-primary").getElementText() === ' Checkout ( 0 )', // condition ( First Argument)
+        //     {
+        //         // Second Argument
+        //         timeout: 5000, 
+        //         timeoutMsg: 'Error message is not showing up' 
+        //     }
+        // )
+
+        await $("//a[contains(text(),'ProtoCommerce Home')]").waitForExist() // To check if the element is currently exist
+        await expect(browser).toHaveUrlContaining("shop") // Assertion
+        await expect(browser).toHaveTitle("ProtoCommerce") // Assertion
     })
 
 }) 
