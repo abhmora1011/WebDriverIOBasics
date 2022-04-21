@@ -25,9 +25,24 @@ describe('ECommere Application', async () => {
         //const elem = await $('#username')
         await $("input[name='username']").setValue('Hello') // input value
 
-        await browser.pause(3000) // is like Thread.sleep in java to pause the execution
+        // await browser.pause(3000) // is like Thread.sleep in java to pause the execution
 
-        await $("input[name='username']").setValue('Hello') // override the existing content
+        await $("input[name='username']").setValue('Hi') // override the existing content
+
+        await $("//input[@type='password']").setValue("sample")
+
+        // const elemPass = await $("(//span[@class='checkmark'])[2]")
+        // elemPass.click()
+
+        // await $("#okayBtn").click()
+
+        await $("#signInBtn").click()
+        
+        await browser.pause(3000)
+
+        await console.log(await $(".alert-danger").getText()) // Grab the text
+
+        
 
         // to run in terminal type npx wdio run ./wdio.conf.js
 
