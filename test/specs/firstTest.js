@@ -38,11 +38,22 @@ describe('ECommere Application', async () => {
 
         await $("#signInBtn").click()
         
-        await browser.pause(3000)
+        // await browser.pause(3000)
 
         await console.log(await $(".alert-danger").getText()) // Grab the text
 
-        
+        // EXPLICIT WAIT
+        // browser.waitUntil(condition, { timeout, timeoutMsg, interval })
+        await browser.waitUntil(
+            async ()=> await $("#signInBtn").getAttribute('value') === 'Sign In', // condition ( First Argument)
+            {
+                // Second Argument
+                timeout: 5000, 
+                timeoutMsg: 'Error message is not showing up' 
+            }
+        )
+
+        await console.log(await $(".alert-danger").getText()) // Grab the text
 
         // to run in terminal type npx wdio run ./wdio.conf.js
 
