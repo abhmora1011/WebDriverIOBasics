@@ -1,7 +1,9 @@
 const expectChai = require('chai').expect
 
 describe('UI Controls Test Suite',async ()=>{
-    it('UI Controls', async ()=>{
+    xit('UI Controls', async ()=>{
+        // Dati no need na yung async at await automatic na sya
+        // Node.js is updated kaya need na ilagay yung async and await
         await browser.url("https://www.rahulshettyacademy.com/loginpagePractise/");
         await browser.maximizeWindow()
         await $("input[name='username']").setValue('rahulshettyacademy') 
@@ -33,5 +35,24 @@ describe('UI Controls Test Suite',async ()=>{
         // require the chai node module at the top
         expectChai(await dropdown.getValue()).to.equal("stud")
 
+    })
+
+    it("Dynamic Controls", async ()=>{
+        await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
+        await browser.maximizeWindow()
+        const drop = await $("#autocomplete")
+        drop.setValue("ind")
+        await browser.pause(3000)
+        const items = await $$(".ui-menu-item div")
+        
+        for(var i = 0; i< await items.length;i++ ){
+            //console.log(await items[i].getText())
+            if(await items[i].getText() === "India"){
+                await items[i].click()
+                await browser.pause(3000)
+            }
+        }
+        await browser.pause(3000)
+        
     })
 })
