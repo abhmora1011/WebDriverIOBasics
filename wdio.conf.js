@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/uiConstrolls.js'
+        './test/specs/functionalScenarios.js'
     ],
     // Patterns to exclude.
     exclude: [
