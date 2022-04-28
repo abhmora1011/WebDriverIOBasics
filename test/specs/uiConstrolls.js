@@ -37,7 +37,7 @@ describe('UI Controls Test Suite',async ()=>{
 
     })
 
-    it("Dynamic Controls", async ()=>{
+    xit("Dynamic Controls", async ()=>{
         await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
         await browser.maximizeWindow()
         const drop = await $("#autocomplete")
@@ -54,5 +54,16 @@ describe('UI Controls Test Suite',async ()=>{
         }
         await browser.pause(3000)
         
+    })
+    it("Checkbox", async ()=>{
+        await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
+        await browser.maximizeWindow()
+        const checkbox = $$("input[type='checkbox']")
+        await checkbox[1].click()
+        await browser.pause(3000)
+        console.log(await checkbox[1].isSelected())
+        console.log(await checkbox[2].isSelected())
+        // Screenshot
+        await browser.saveScreenshot("screenshot.png")
     })
 })
