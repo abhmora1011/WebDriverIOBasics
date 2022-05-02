@@ -12,7 +12,7 @@ describe("Functional Test Sample",async ()=>{
         await browser.pause(3000)
     })
 
-    it("Alert",async ()=>{
+    xit("Alert",async ()=>{
         await browser.url("https://only-testing-blog.blogspot.com/")
         await browser.maximizeWindow()
         await $("button").doubleClick()
@@ -23,5 +23,17 @@ describe("Functional Test Sample",async ()=>{
         await browser.acceptAlert()
         await browser.pause(3000)
 
+    })
+
+    it("Sort",async ()=>{
+        await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+        await browser.maximizeWindow()
+        await $("tr th:nth-child(1)").click()
+        // Retrieve the list of veggies in an array
+        // sort the array A and create array B
+        // compare A and array B (Fail)
+        let veggiesLocators = $$("tr td:nth-child(1)")
+        veggiesLocators.map(veggie=>veggie.getText())
+        
     })
 })
