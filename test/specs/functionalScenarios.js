@@ -25,7 +25,7 @@ describe("Functional Test Sample",async ()=>{
 
     })
 
-    it("Sort",async ()=>{
+    xit("Sort",async ()=>{
         await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
         await browser.maximizeWindow()
         await $("tr th:nth-child(1)").click()
@@ -40,5 +40,15 @@ describe("Functional Test Sample",async ()=>{
         sortedVeggies = await veggies.sort()
         console.log(sortedVeggies)
         expectChai(originalVeggiesNames).to.eql(sortedVeggies)
+    })
+
+    it("Filter",async ()=> {
+        await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+        await browser.maximizeWindow()
+        await $("input[type='search']").setValue("tomato")
+        const veggiesLocator = await $$("tr td:nth-child(1)")
+        await expect(veggiesLocator).toBeElementsArrayOfSize({eq:1})
+        console.log(await veggiesLocator[0].getText())
+        await expect(await veggiesLocator[0]).toHaveTextContaining("Tomto")
     })
 })
