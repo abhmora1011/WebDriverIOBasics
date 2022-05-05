@@ -32,8 +32,13 @@ describe("Functional Test Sample",async ()=>{
         // Retrieve the list of veggies in an array
         // sort the array A and create array B
         // compare A and array B (Fail)
-        let veggiesLocators = $$("tr td:nth-child(1)")
-        veggiesLocators.map(veggie=>veggie.getText())
-        
+        const veggiesLocators = await $$("tr td:nth-child(1)")
+        const originalVeggiesNames = await veggiesLocators.map(async veggie=>await veggie.getText())
+        console.log(originalVeggiesNames)
+        veggies = await originalVeggiesNames.slice()
+        // Array are pass by reference
+        sortedVeggies = await veggies.sort()
+        console.log(sortedVeggies)
+        expectChai(originalVeggiesNames).to.eql(sortedVeggies)
     })
 })
