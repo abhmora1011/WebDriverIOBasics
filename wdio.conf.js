@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/functionalScenarios.js'
+        './test/specs/windowFrames.js'
     ],
     // Patterns to exclude.
     exclude: [
