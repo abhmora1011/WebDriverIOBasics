@@ -1,5 +1,5 @@
 describe("Windows and Frames Miscellaneaous",async ()=>{
-    it("Parent and Child windows Miscellaneaous", async ()=>
+    xit("Parent and Child windows Miscellaneaous", async ()=>
     {
         await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
         await browser.maximizeWindow()
@@ -16,5 +16,17 @@ describe("Windows and Frames Miscellaneaous",async ()=>{
         await browser.switchWindow("https://rahulshettyacademy.com/loginpagePractise/") // Browser are open by automation
         await $("#username").setValue("helloIswitchback")
         await browser.pause(3000)
+    })
+
+    it("Frame switch",async ()=>{
+        await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
+        await browser.maximizeWindow()
+        await $("#mousehover").scrollIntoView()
+        console.log(await $$("a").length)
+        await browser.switchToFrame(await $("[id='courses-iframe']"))
+        console.log(await $("=Courses").getTagName())
+        console.log(await $$("a").length)
+        await browser.switchToFrame(null) // this will exist the frame and be back to normal
+        console.log(await $$("a").length)
     })
 })
