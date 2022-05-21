@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/windowFrames.js'
+        './test/specs/endToEnd.js'
     ],
     // Patterns to exclude.
     exclude: [
