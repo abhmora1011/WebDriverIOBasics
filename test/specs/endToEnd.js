@@ -3,7 +3,6 @@ const expectChai = require('chai').expect
 describe('ECommere Application', async () => {
 
     it('End to End', async ()=> {
-        const products = ['iphone X','Blackberry']
         await browser.url("https://www.rahulshettyacademy.com/loginpagePractise/");
         await browser.maximizeWindow()
         await $("input[name='username']").setValue('rahulshettyacademy') 
@@ -43,7 +42,7 @@ describe('ECommere Application', async () => {
         await $('#country').setValue("ind")
         await $(".lds-ellipsis").waitForExist({reverse:true}) // wait until disappear
         await $("=India").click()
-        await $("input[type='submit']")
+        await $("input[type='submit']").click()
         await expect($(".alert-success")).toHaveTextContaining("Success")
     })
 

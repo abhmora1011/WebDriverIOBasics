@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/endToEnd.js'
+        './test/specs/poTest.js'
     ],
     // Patterns to exclude.
     exclude: [
