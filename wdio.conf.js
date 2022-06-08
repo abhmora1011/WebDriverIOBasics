@@ -56,13 +56,14 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome', // Change the browser name chrome, firefox, MicrosoftEdge
+        browserName: 'MicrosoftEdge', // Change the browser name chrome, firefox, MicrosoftEdge
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
     }],
+    
     //
     // ===================
     // Test Configurations

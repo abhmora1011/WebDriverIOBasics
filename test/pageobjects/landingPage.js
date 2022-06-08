@@ -24,7 +24,7 @@ class LandingPage
             const card = await this.cardsList[i].$("div h4 a")
             console.log(await card.getText())
             if(products.includes(await card.getText())){
-                await this.cardsList[i].$(".card-footer button").click
+                await this.cardsList[i].$(".card-footer button").click()
             }
         }
 
